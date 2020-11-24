@@ -1,3 +1,4 @@
+import sys
 from scapy.all import *
 
 def check_hops(dst, verbose=False):
@@ -10,3 +11,7 @@ def check_hops(dst, verbose=False):
             return p.ttl
         else:
             p.ttl += 1
+
+if __name__ == '__main__':
+    hops = check_hops(sys.argv[1], verbose=True)
+    print(f"{hops} hops")
